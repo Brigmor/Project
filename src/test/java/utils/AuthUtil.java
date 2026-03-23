@@ -10,5 +10,11 @@ public class AuthUtil {
                 .path("token");
 
     }
+    public static int extractIdUser(Response response){
+        return response.jsonPath().getInt("register_data.id");
+    }
+    public static String extractPsswordUser(Response response){
+        return response.jsonPath().getString("register_data.pass");
+    }
 
 }
