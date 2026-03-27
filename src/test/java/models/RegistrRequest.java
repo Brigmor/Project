@@ -1,8 +1,8 @@
-package pojo;
+package models;
 
 import lombok.Data;
 @Data
-public class RegistrationRequest {
+public class RegistrRequest {
 
 
     private String login;

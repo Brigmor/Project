@@ -2,7 +2,7 @@ package utils;
 
 import io.restassured.response.Response;
 
-public class AuthUtil {
+public class ExtractUtils {
     public static String extractToken(Response response){
         return response
                 .then()
@@ -16,5 +16,6 @@ public class AuthUtil {
     public static String extractPsswordUser(Response response){
         return response.jsonPath().getString("register_data.pass");
     }
+
 
 }

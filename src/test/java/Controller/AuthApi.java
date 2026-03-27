@@ -1,20 +1,20 @@
 package Controller;
 
-import Data.Endpoints;
+import Controller.interfaces.RequestImpl;
+import Controller.interfaces.RequestInterface;
 import io.qameta.allure.Step;
-import io.qameta.allure.restassured.AllureRestAssured;
+import utils.Endpoints;
 import io.restassured.response.Response;
-import pojo.AuthorizationRequest;
+import models.AuthRequest;
 
-import static Data.Endpoints.*;
 import static io.restassured.RestAssured.given;
 
 public class AuthApi {
 
     private static final RequestInterface request = new RequestImpl();
 
-    //Авторизация юзера
-    public static Response authorizationUser(AuthorizationRequest auth) {
+    @Step("Авторизация пользователя")
+    public static Response authorizationUser(AuthRequest auth) {
         return request.post(Endpoints.loginPoint, auth, null);
     }
 

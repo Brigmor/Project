@@ -1,20 +1,20 @@
-package Data;
+package utils;
 
 import com.github.javafaker.Faker;
-import pojo.AuthorizationRequest;
-import pojo.RegistrationRequest;
+import models.AuthRequest;
+import models.RegistrRequest;
 
 public class GenerationUser {
 
-    private static  RegistrationRequest lastUser;
+    private static RegistrRequest lastUser;
     private static final Faker faker = new Faker();
 
 
-    public static RegistrationRequest generateUser(){
+    public static RegistrRequest generateUser(){
         String login = "user_" + faker.name().lastName();
         String pass = faker.internet().password(8, 12);
 
-        RegistrationRequest user = new RegistrationRequest();
+        RegistrRequest user = new RegistrRequest();
         user.setLogin(login);
         user.setPass(pass);
 
@@ -23,8 +23,8 @@ public class GenerationUser {
         return user;
     }
 
-    public static AuthorizationRequest authGenerateUser(){
-        AuthorizationRequest authUser = new AuthorizationRequest();
+    public static AuthRequest authGenerateUser(){
+        AuthRequest authUser = new AuthRequest();
         authUser.setUsername(lastUser.getLogin());
         authUser.setPassword(lastUser.getPass());
         return authUser;

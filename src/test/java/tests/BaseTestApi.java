@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,7 +15,6 @@ public class BaseTestApi {
     @BeforeEach
     public void setUp(){
         RestAssured.baseURI =BASE_URL;
-
     }
 
 
